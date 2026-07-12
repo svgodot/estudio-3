@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dfyl4kc18frnf"]
+
+[ext_resource type="Script" uid="uid://d2qfsj0nptgb6" path="res://CODIGO/combat_controller.gd" id="1_1oxky"]
+
+[node name="CombatController" type="Node" unique_id=60368484]
+script = ExtResource("1_1oxky")

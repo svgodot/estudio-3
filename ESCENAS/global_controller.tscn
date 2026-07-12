@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bdf0842ylwtom"]
+
+[ext_resource type="Script" uid="uid://dj2qpg2ja5yvp" path="res://CODIGO/global_controller.gd" id="1_1y4nj"]
+
+[node name="GlobalController" type="Node" unique_id=450175582]
+script = ExtResource("1_1y4nj")
