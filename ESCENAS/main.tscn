@@ -1,7 +1,178 @@
 [gd_scene format=3 uid="uid://buj548mwj7wxh"]
 
 [ext_resource type="PackedScene" uid="uid://b7y8cuvimh88d" path="res://ESCENAS/action_tracker_ui.tscn" id="1_rtu5k"]
+[ext_resource type="Script" uid="uid://boxdtpe6lniwy" path="res://CODIGO/main.gd" id="1_touf3"]
 [ext_resource type="PackedScene" uid="uid://dfyl4kc18frnf" path="res://ESCENAS/combat_controller.tscn" id="2_546r4"]
+[ext_resource type="Texture2D" uid="uid://dfuiaipjcodph" path="res://icon.svg" id="2_r0atp"]
+[ext_resource type="Texture2D" uid="uid://ceuo4wf2kx61n" path="res://RESOURCES/UI_SPRITES/fondo1-dithered.png" id="3_546r4"]
+[ext_resource type="PackedScene" uid="uid://hjikrrek34du" path="res://ESCENAS/enemy_ui.tscn" id="7_8lwkj"]
+
+[sub_resource type="Animation" id="Animation_r0atp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_touf3"]
+resource_name = "a"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.95, 0.95), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.061086524, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.52156866, 1, 0.63529414, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x20aj"]
+resource_name = "b"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.5058824, 0.44705883, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.061086524, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.05, 1.05), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_8lwkj"]
+resource_name = "x"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.73333335, 0.77254903, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.95, 0.95), Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.04363323, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7jwqp"]
+_data = {
+&"RESET": SubResource("Animation_r0atp"),
+&"a": SubResource("Animation_touf3"),
+&"b": SubResource("Animation_x20aj"),
+&"x": SubResource("Animation_8lwkj")
+}
 
 [node name="Main" type="Control" unique_id=1705022042]
 layout_mode = 3
@@ -10,8 +181,62 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_touf3")
+
+[node name="Fondo2" type="TextureRect" parent="." unique_id=69365762]
+modulate = Color(0.22989318, 0.22989318, 0.22989318, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_546r4")
+expand_mode = 1
+stretch_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="CombatController" parent="." unique_id=60368484 instance=ExtResource("2_546r4")]
 
 [node name="ActionTrackerUI" parent="." unique_id=1899876846 instance=ExtResource("1_rtu5k")]
 layout_mode = 1
 
-[node name="CombatController" parent="." unique_id=60368484 instance=ExtResource("2_546r4")]
+[node name="Mask1" type="TextureRect" parent="." unique_id=72216307]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.133
+anchor_top = 0.744
+anchor_right = 0.263
+anchor_bottom = 0.975
+offset_left = -0.3600006
+offset_top = 0.47998047
+offset_right = 0.0395813
+offset_bottom = 0.9987793
+texture = ExtResource("2_r0atp")
+
+[node name="Mask1AnimationPlayer" type="AnimationPlayer" parent="Mask1" unique_id=1203823012]
+libraries/ = SubResource("AnimationLibrary_7jwqp")
+
+[node name="Mask2" type="TextureRect" parent="." unique_id=1811022893]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75500005
+anchor_top = 0.73600006
+anchor_right = 0.88500005
+anchor_bottom = 0.96800005
+offset_left = 0.39990234
+offset_top = 0.11993408
+offset_right = 0.79992676
+offset_bottom = -0.44006348
+texture = ExtResource("2_r0atp")
+
+[node name="EnemyUI" parent="." unique_id=457577669 instance=ExtResource("7_8lwkj")]
+layout_mode = 1
+anchor_left = 0.312
+anchor_top = 0.038000003
+anchor_right = 0.703
+anchor_bottom = 0.73200005
+offset_left = 0.95996094
+offset_top = -0.040000916
+offset_right = 0.23999023
+offset_bottom = 0.4399414

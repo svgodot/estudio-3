@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://dql51shvsxppd"]
+
+[ext_resource type="FontFile" uid="uid://caemnnrdck1oy" path="res://RESOURCES/IMMORTAL.ttf" id="1_crmvn"]
+[ext_resource type="Script" uid="uid://dks0fed516xn0" path="res://CODIGO/choice_turn.gd" id="1_ont0k"]
+[ext_resource type="Texture2D" uid="uid://cc5rr36jqrm08" path="res://RESOURCES/UI_SPRITES/ACTION_TRACKER_UI/360_LT.png" id="2_ont0k"]
+[ext_resource type="Texture2D" uid="uid://pgekilp8oau3" path="res://RESOURCES/UI_SPRITES/ACTION_TRACKER_UI/360_RT.png" id="3_mi6wk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_crmvn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ont0k"]
+
+[sub_resource type="Shortcut" id="Shortcut_wb4n3"]
+
+[sub_resource type="Animation" id="Animation_ont0k"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_mi6wk"]
+resource_name = "press"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/icon_normal_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.9490196, 0.3137255, 0.19607843, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gmu1g"]
+_data = {
+&"RESET": SubResource("Animation_ont0k"),
+&"press": SubResource("Animation_mi6wk")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yh3v2"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1jeco"]
+
+[sub_resource type="Theme" id="Theme_fo48h"]
+Button/colors/font_hover_color = Color(0.9490196, 0.3137255, 0.19607843, 1)
+Button/colors/icon_pressed_color = Color(0.9490196, 0.3137255, 0.19607843, 1)
+Button/constants/h_separation = 0
+Button/constants/icon_max_width = 70
+Button/icons/icon = ExtResource("3_mi6wk")
+Button/styles/normal = SubResource("StyleBoxEmpty_yh3v2")
+Button/styles/pressed = SubResource("StyleBoxEmpty_1jeco")
+
+[sub_resource type="Animation" id="Animation_5qiub"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/icon_normal_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wb4n3"]
+resource_name = "press"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_colors/icon_normal_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.9490196, 0.3137255, 0.19607843, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hr1a1"]
+_data = {
+&"RESET": SubResource("Animation_5qiub"),
+&"press": SubResource("Animation_wb4n3")
+}
+
+[node name="ChoiceTurn" type="Control" unique_id=1032022822]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ont0k")
+
+[node name="TalkBtn" type="Button" parent="." unique_id=753814987]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.279
+anchor_top = 0.439
+anchor_right = 0.43400002
+anchor_bottom = 0.563
+offset_left = -0.6800537
+offset_top = 1.8799744
+offset_right = -0.2800293
+offset_bottom = -0.040039063
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_pressed_color = Color(0.9490196, 0.3137255, 0.19607843, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/icon_max_width = 75
+theme_override_fonts/font = ExtResource("1_crmvn")
+theme_override_font_sizes/font_size = 42
+theme_override_icons/icon = ExtResource("2_ont0k")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_crmvn")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ont0k")
+action_mode = 0
+shortcut = SubResource("Shortcut_wb4n3")
+text = "TALK"
+alignment = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TalkBtn" unique_id=1808540966]
+libraries/ = SubResource("AnimationLibrary_gmu1g")
+
+[node name="FightBtn" type="Button" parent="." unique_id=304415004]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.572
+anchor_top = 0.446
+anchor_right = 0.72700006
+anchor_bottom = 0.563
+offset_left = -0.23999023
+offset_top = 0.3199768
+offset_right = 0.15991211
+offset_bottom = -0.040039063
+grow_vertical = 2
+theme = SubResource("Theme_fo48h")
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_crmvn")
+theme_override_font_sizes/font_size = 42
+action_mode = 0
+text = "FIGHT"
+alignment = 2
+icon_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="FightBtn" unique_id=1285733866]
+libraries/ = SubResource("AnimationLibrary_hr1a1")

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://hjikrrek34du"]
+
+[ext_resource type="PackedScene" uid="uid://ru86qkbei5rn" path="res://ESCENAS/text_ui.tscn" id="1_j5w3q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vlk4"]
+bg_color = Color(0, 0, 0, 0.5411765)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="EnemyUI" type="Control" unique_id=457577669]
+layout_mode = 3
+anchor_right = 0.39100003
+anchor_bottom = 0.694
+offset_right = -0.7200928
+offset_bottom = 0.47998047
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1359777701]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0vlk4")
+
+[node name="TextUI" parent="." unique_id=1158247033 instance=ExtResource("1_j5w3q")]
+layout_mode = 1
+anchor_left = 0.067
+anchor_top = 0.82000005
+anchor_right = 0.919
+anchor_bottom = 0.97300005
+offset_left = -0.25
+offset_top = -6.1035156e-05
+offset_right = -0.25
+offset_bottom = 0.24993896

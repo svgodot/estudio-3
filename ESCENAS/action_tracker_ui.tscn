@@ -3,43 +3,62 @@
 [ext_resource type="Script" uid="uid://d1abye10ii28x" path="res://CODIGO/action_tracker_ui.gd" id="1_qi1ov"]
 [ext_resource type="Texture2D" uid="uid://dfuiaipjcodph" path="res://icon.svg" id="2_wujaf"]
 
+[sub_resource type="Animation" id="Animation_wujaf"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_ohar5"]
+resource_name = "slide"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(605, 1006), Vector2(1342, 1009)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7djwt"]
+_data = {
+&"RESET": SubResource("Animation_wujaf"),
+&"slide": SubResource("Animation_ohar5")
+}
+
 [node name="ActionTrackerUI" type="Control" unique_id=1899876846]
 layout_mode = 3
-anchor_right = 0.39100003
-anchor_bottom = 0.46300003
-offset_right = -0.7200928
-offset_bottom = -0.040039063
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_qi1ov")
-
-[node name="HBoxActionTracker" type="HBoxContainer" parent="." unique_id=89264887]
-custom_maximum_size = Vector2(1000, 50)
-clip_contents = true
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.067
-anchor_top = 0.1
-anchor_right = 0.73300004
-anchor_bottom = 0.2
-offset_left = -0.25
-offset_right = 0.25
-theme_override_constants/separation = 5
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="." unique_id=1778930387]
 visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.067
-anchor_top = 0.030000001
-anchor_right = 1.133
-anchor_bottom = 0.040000003
-offset_left = -0.25
-offset_top = 14.999999
-offset_right = 0.25
-offset_bottom = 17.999998
+anchor_left = 0.31100002
+anchor_top = 0.97
+anchor_right = 0.702
+anchor_bottom = 0.975
+offset_left = -0.12005615
+offset_top = 0.4000244
+offset_right = -0.8400879
+offset_bottom = 5.0
 max_value = 1.0
 step = 0.0
+value = 1.0
 nine_patch_stretch = true
 texture_progress = ExtResource("2_wujaf")
 tint_under = Color(0.3372549, 0.21960784, 1, 1)
 tint_over = Color(0.50980395, 0, 0.1764706, 1)
 tint_progress = Color(0.2387748, 0.5558897, 0.82779425, 1)
+
+[node name="ActionMarker" type="Marker2D" parent="." unique_id=89623504]
+position = Vector2(605, 1006)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ActionMarker" unique_id=1544239197]
+libraries/ = SubResource("AnimationLibrary_7djwt")
