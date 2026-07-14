@@ -5,6 +5,16 @@ extends Node
 var last_time = 0
 
 @export var umbral_consecutivo = 0.25
+@export var player_attack = 1
+@export var player_defense = 1
+@export var player_health = 100
+@export var enemy_attack = 1
+@export var enemy_defense = 1
+@export var enemy_health = 100
+
+@export var sorrow_mod = 10
+@export var joy_mod = 20
+@export var anger_mod = 15
  
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -18,6 +28,8 @@ func _ready() -> void:
 	single_button_timer.one_shot = true
 	
 	add_child(single_button_timer)
+
+	
 
 
 
@@ -82,13 +94,58 @@ func resolve_action() -> void:
 	#EXTRAER LOS TIEMPOS
 	var media_seconds_between_actions = calculate_media_between_actions(GlobalController.array_dict_button_time)
 	var is_there_too_many_consecutives = calculate_too_many_consecutives(GlobalController.array_dict_button_time)
-
 	#print("MEDIA DE TIEMPOS: ", media_seconds_between_actions)
 	#print("MUY CONSECUTIVO: ", is_there_too_many_consecutives)
 
 	# RESOLVER
 
+	# GUESS EMOTION
+	var number_of_array = [number_of_a, number_of_b, number_of_x]
+	var cont = 0
+	var is_anger = false
+	var is_joy = false
+	var is_sorrow = false
+	var action_score = 0
+	var action = 0
+	
 
+	for i in number_of_array:
+		if (i != 0):
+			cont += 1
+	
+	match (cont):
+		0:
+			pass
+		1:
+			is_sorrow = true
+			is_anger = true
+		2:
+			is_joy = true
+			is_sorrow = true
+		3: 
+			is_joy = true
+			is_sorrow = true
+
+	print (media_seconds_between_actions)
+	if (media_seconds_between_actions < 0.25):
+		is_sorrow = false
+
+	if (is_sorrow):
+		action_score = player_attack + sorrow_mod
+		action = 2
+	elif (is_anger):
+		action_score = player_attack + anger_mod
+		action = 1
+	elif (is_joy):
+		action_score = player_attack + joy_mod
+		action = 0
+
+
+	if (!GlobalController.is_talking):
+		GlobalController.show_action_signal.emit(action_score, action) # 0 joy, 1 anger, 2 sorrow
+	else:
+		pass
+		# TODO
 
 	# LIMPIAR 
 	GlobalController.array_dict_button_time = []
@@ -111,6 +168,7 @@ func calculate_too_many_consecutives(list_dict : Array) -> bool:
 		res = true
 
 	return res
+
 
 func calculate_media_between_actions(list_dict : Array) -> float:
 	var res = 0.0

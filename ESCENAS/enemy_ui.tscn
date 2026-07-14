@@ -1,27 +1,104 @@
 [gd_scene format=3 uid="uid://hjikrrek34du"]
 
-[ext_resource type="PackedScene" uid="uid://ru86qkbei5rn" path="res://ESCENAS/text_ui.tscn" id="1_j5w3q"]
+[ext_resource type="Texture2D" uid="uid://dy65egq3expwo" path="res://RESOURCES/UI_SPRITES/bug.png" id="1_oilyb"]
+[ext_resource type="Script" uid="uid://cse6wkj2nmryi" path="res://CODIGO/enemy_ui.gd" id="1_ty5cn"]
+[ext_resource type="FontFile" uid="uid://caemnnrdck1oy" path="res://RESOURCES/IMMORTAL.ttf" id="2_oilyb"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0vlk4"]
-bg_color = Color(0, 0, 0, 0.5411765)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oilyb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oilyb"]
+draw_center = false
 border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 border_blend = true
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+
+[sub_resource type="Animation" id="Animation_oilyb"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_ug6ph"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.1, 1.1), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.08726646, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ty5cn"]
+resource_name = "damage"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.08726646, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.43333334, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ug6ph"]
+_data = {
+&"RESET": SubResource("Animation_oilyb"),
+&"attack": SubResource("Animation_ug6ph"),
+&"damage": SubResource("Animation_ty5cn")
+}
 
 [node name="EnemyUI" type="Control" unique_id=457577669]
 layout_mode = 3
-anchor_right = 0.39100003
-anchor_bottom = 0.694
-offset_right = -0.7200928
-offset_bottom = 0.47998047
+anchor_right = 0.33900002
+anchor_bottom = 0.60200006
+offset_right = 199.12
+offset_bottom = -0.16003418
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ty5cn")
 
 [node name="Panel" type="Panel" parent="." unique_id=1359777701]
 layout_mode = 1
@@ -30,15 +107,50 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_0vlk4")
+theme_override_styles/panel = SubResource("StyleBoxEmpty_oilyb")
 
-[node name="TextUI" parent="." unique_id=1158247033 instance=ExtResource("1_j5w3q")]
+[node name="Panel" type="Panel" parent="Panel" unique_id=1637288910]
 layout_mode = 1
-anchor_left = 0.067
-anchor_top = 0.82000005
-anchor_right = 0.919
-anchor_bottom = 0.97300005
-offset_left = -0.25
-offset_top = -6.1035156e-05
-offset_right = -0.25
-offset_bottom = 0.24993896
+anchors_preset = -1
+anchor_left = 0.16600001
+anchor_top = 0.038000003
+anchor_right = 0.813
+anchor_bottom = 0.749
+offset_left = -0.1000061
+offset_top = 0.29999924
+offset_right = -0.050048828
+offset_bottom = 0.1499939
+theme_override_styles/panel = SubResource("StyleBoxFlat_oilyb")
+
+[node name="TextureRect" type="TextureRect" parent="Panel/Panel" unique_id=1081456536]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_oilyb")
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Panel/TextureRect" unique_id=54876139]
+libraries/ = SubResource("AnimationLibrary_ug6ph")
+speed_scale = 2.0
+
+[node name="Name" type="RichTextLabel" parent="Panel" unique_id=667223499]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30100003
+anchor_top = 0.048
+anchor_right = 0.642
+anchor_bottom = 0.142
+offset_left = 0.14997864
+offset_top = -0.20000076
+offset_right = 0.4199829
+offset_bottom = -0.16999817
+theme_override_fonts/normal_font = ExtResource("2_oilyb")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "BUG"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1

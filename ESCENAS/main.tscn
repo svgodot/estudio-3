@@ -5,7 +5,29 @@
 [ext_resource type="PackedScene" uid="uid://dfyl4kc18frnf" path="res://ESCENAS/combat_controller.tscn" id="2_546r4"]
 [ext_resource type="Texture2D" uid="uid://dfuiaipjcodph" path="res://icon.svg" id="2_r0atp"]
 [ext_resource type="Texture2D" uid="uid://ceuo4wf2kx61n" path="res://RESOURCES/UI_SPRITES/fondo1-dithered.png" id="3_546r4"]
+[ext_resource type="FontFile" uid="uid://caemnnrdck1oy" path="res://RESOURCES/IMMORTAL.ttf" id="7_7jwqp"]
 [ext_resource type="PackedScene" uid="uid://hjikrrek34du" path="res://ESCENAS/enemy_ui.tscn" id="7_8lwkj"]
+[ext_resource type="PackedScene" uid="uid://ru86qkbei5rn" path="res://ESCENAS/text_ui.tscn" id="8_7jwqp"]
+[ext_resource type="PackedScene" uid="uid://bo1tu7rhwf0y5" path="res://ESCENAS/player_stats_ui.tscn" id="9_fn3uo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wddc5"]
+font = ExtResource("7_7jwqp")
+font_size = 42
+font_color = Color(1, 1, 0, 1)
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wddc5"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
 
 [sub_resource type="Animation" id="Animation_r0atp"]
 length = 0.001
@@ -174,6 +196,84 @@ _data = {
 &"x": SubResource("Animation_8lwkj")
 }
 
+[sub_resource type="Animation" id="Animation_fn3uo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dcbrs"]
+resource_name = "fadce"
+
+[sub_resource type="Animation" id="Animation_gij5c"]
+resource_name = "fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1.0333333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ycrkq"]
+_data = {
+&"RESET": SubResource("Animation_fn3uo"),
+&"fadce": SubResource("Animation_dcbrs"),
+&"fade": SubResource("Animation_gij5c")
+}
+
+[sub_resource type="Animation" id="Animation_3vd6h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_j2oyp"]
+resource_name = "fade"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_oo7jd"]
+_data = {
+&"RESET": SubResource("Animation_3vd6h"),
+&"fade": SubResource("Animation_j2oyp")
+}
+
 [node name="Main" type="Control" unique_id=1705022042]
 layout_mode = 3
 anchors_preset = 15
@@ -182,6 +282,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_touf3")
+label_settings = SubResource("LabelSettings_wddc5")
 
 [node name="Fondo2" type="TextureRect" parent="." unique_id=69365762]
 modulate = Color(0.22989318, 0.22989318, 0.22989318, 1)
@@ -196,47 +297,188 @@ expand_mode = 1
 stretch_mode = 1
 metadata/_edit_lock_ = true
 
+[node name="BottomPanel" type="Panel" parent="." unique_id=1617811928]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.010000001
+anchor_top = 0.021000002
+anchor_right = 0.975
+anchor_bottom = 0.202
+offset_left = -0.20000076
+offset_top = 0.3199978
+offset_bottom = -0.16000366
+theme_override_styles/panel = SubResource("StyleBoxFlat_wddc5")
+
+[node name="BottomPanel2" type="Panel" parent="." unique_id=1881842449]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.011000001
+anchor_top = 0.20400001
+anchor_right = 0.30600002
+anchor_bottom = 0.74
+offset_left = -0.12000084
+offset_top = -0.32000732
+offset_right = 0.47998047
+offset_bottom = -0.2000122
+theme_override_styles/panel = SubResource("StyleBoxFlat_wddc5")
+
+[node name="BottomPanel3" type="Panel" parent="." unique_id=799554232]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.683
+anchor_top = 0.20600002
+anchor_right = 0.97800004
+anchor_bottom = 0.744
+offset_left = -0.36010742
+offset_top = -4.480011
+offset_right = 0.23986816
+offset_bottom = 0.47998047
+theme_override_styles/panel = SubResource("StyleBoxFlat_wddc5")
+
 [node name="CombatController" parent="." unique_id=60368484 instance=ExtResource("2_546r4")]
 
 [node name="ActionTrackerUI" parent="." unique_id=1899876846 instance=ExtResource("1_rtu5k")]
 layout_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="Mask1" type="TextureRect" parent="." unique_id=72216307]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.133
-anchor_top = 0.744
-anchor_right = 0.263
-anchor_bottom = 0.975
-offset_left = -0.3600006
-offset_top = 0.47998047
-offset_right = 0.0395813
-offset_bottom = 0.9987793
+anchor_left = 0.162
+anchor_top = 0.76600003
+anchor_right = 0.28500003
+anchor_bottom = 0.96500003
+offset_left = 538.95996
+offset_top = -16.28003
+offset_right = 506.79993
+offset_bottom = -48.200073
 texture = ExtResource("2_r0atp")
 
 [node name="Mask1AnimationPlayer" type="AnimationPlayer" parent="Mask1" unique_id=1203823012]
 libraries/ = SubResource("AnimationLibrary_7jwqp")
 
-[node name="Mask2" type="TextureRect" parent="." unique_id=1811022893]
+[node name="ComboText" type="RichTextLabel" parent="." unique_id=1936993192]
+visible = false
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.75500005
-anchor_top = 0.73600006
-anchor_right = 0.88500005
-anchor_bottom = 0.96800005
-offset_left = 0.39990234
-offset_top = 0.11993408
-offset_right = 0.79992676
-offset_bottom = -0.44006348
-texture = ExtResource("2_r0atp")
+anchor_left = 0.058000002
+anchor_top = 0.80100006
+anchor_right = 0.23900001
+anchor_bottom = 0.947
+offset_left = 0.6399994
+offset_top = -0.080078125
+offset_right = 0.11999512
+offset_bottom = 0.23999023
+theme_override_fonts/normal_font = ExtResource("7_7jwqp")
+theme_override_font_sizes/normal_font_size = 42
+bbcode_enabled = true
+text = "[wave amp=60.0 freq=5.0 connected=1]CATHARSIS[/wave]
+"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="EnemyUI" parent="." unique_id=457577669 instance=ExtResource("7_8lwkj")]
 layout_mode = 1
-anchor_left = 0.312
-anchor_top = 0.038000003
-anchor_right = 0.703
-anchor_bottom = 0.73200005
-offset_left = 0.95996094
-offset_top = -0.040000916
-offset_right = 0.23999023
-offset_bottom = 0.4399414
+anchor_left = 0.30400002
+anchor_top = 0.18100001
+anchor_right = 0.69000006
+anchor_bottom = 0.69500005
+offset_left = 0.3199463
+offset_top = -0.480011
+offset_right = -0.8000488
+offset_bottom = 0.39996338
+
+[node name="TextUI" parent="." unique_id=1158247033 instance=ExtResource("8_7jwqp")]
+layout_mode = 1
+anchor_left = 0.30900002
+anchor_top = 0.56700003
+anchor_right = 0.683
+anchor_bottom = 0.74200004
+offset_left = 0.7199707
+offset_top = -0.3600464
+offset_right = -0.36010742
+offset_bottom = -0.3600464
+
+[node name="PlayerStatsUI" parent="." unique_id=610921243 instance=ExtResource("9_fn3uo")]
+layout_mode = 1
+anchor_left = 0.011000001
+anchor_top = 0.021000002
+anchor_right = 0.30600002
+anchor_bottom = 0.202
+offset_left = 0.87999916
+offset_top = 0.3199978
+offset_right = -0.52001953
+offset_bottom = -0.16000366
+
+[node name="EnemyStatsUI" parent="." unique_id=911706339 instance=ExtResource("9_fn3uo")]
+layout_mode = 1
+anchor_left = 0.684
+anchor_top = 0.021000002
+anchor_right = 0.97400004
+anchor_bottom = 0.19900002
+offset_left = 0.7199707
+offset_top = 3.3199978
+offset_right = 0.9199219
+offset_bottom = 0.07998657
+
+[node name="PreviousActionText" type="RichTextLabel" parent="." unique_id=244540346]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.423
+anchor_top = 0.052
+anchor_right = 0.551
+anchor_bottom = 0.16100001
+offset_left = 6.839966
+offset_top = 1.8400002
+offset_right = 6.079956
+offset_bottom = 2.1199799
+theme_override_fonts/normal_font = ExtResource("7_7jwqp")
+theme_override_font_sizes/normal_font_size = 28
+bbcode_enabled = true
+text = "PRECEDES: 
+JOY"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1176295028]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect" unique_id=355099921]
+libraries/ = SubResource("AnimationLibrary_ycrkq")
+
+[node name="ActionText" type="RichTextLabel" parent="." unique_id=570015228]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("7_7jwqp")
+theme_override_font_sizes/normal_font_size = 300
+bbcode_enabled = true
+text = "[shake rate=20.0 level=5 connected=1]ANGER[/shake]"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ActionText" unique_id=234364604]
+libraries/ = SubResource("AnimationLibrary_oo7jd")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1162973328]
+position = Vector2(981, 336)
+
+[editable path="PlayerStatsUI"]
+[editable path="EnemyStatsUI"]

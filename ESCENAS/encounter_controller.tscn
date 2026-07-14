@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ud8heibe6dxn"]
+
+[ext_resource type="Script" uid="uid://47yhm186muki" path="res://CODIGO/encounter_controller.gd" id="1_p1g1e"]
+
+[node name="EncounterController" type="Node" unique_id=541973277]
+script = ExtResource("1_p1g1e")

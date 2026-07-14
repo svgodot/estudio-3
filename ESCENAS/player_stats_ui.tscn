@@ -1,59 +1,70 @@
-[gd_scene format=3 uid="uid://ru86qkbei5rn"]
+[gd_scene format=3 uid="uid://bo1tu7rhwf0y5"]
 
-[ext_resource type="FontFile" uid="uid://caemnnrdck1oy" path="res://RESOURCES/IMMORTAL.ttf" id="1_blyew"]
+[ext_resource type="FontFile" uid="uid://caemnnrdck1oy" path="res://RESOURCES/IMMORTAL.ttf" id="1_a0v7d"]
+[ext_resource type="Texture2D" uid="uid://dfuiaipjcodph" path="res://icon.svg" id="1_m7xhs"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_40n1s"]
-bg_color = Color(0, 0, 0, 0.62352943)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(1, 1, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wddc5"]
+bg_color = Color(0, 0, 0, 0.6313726)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
 border_blend = true
 corner_radius_top_left = 2
 corner_radius_top_right = 2
 corner_radius_bottom_right = 2
 corner_radius_bottom_left = 2
 
-[node name="TextUI" type="Control" unique_id=1158247033]
+[node name="PlayerStatsUI" type="Control" unique_id=610921243]
 layout_mode = 3
-anchor_right = 0.39100003
-anchor_bottom = 0.185
-offset_right = -0.7200928
-offset_bottom = 0.19999695
+anchor_right = 0.294
+anchor_bottom = 0.18100001
+offset_right = 0.52001953
+offset_bottom = -0.480011
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="." unique_id=760588752]
+[node name="Panel" type="Panel" parent="." unique_id=1570253702]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_40n1s")
+theme_override_styles/panel = SubResource("StyleBoxFlat_wddc5")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel" unique_id=1177271944]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel" unique_id=1150067568]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 15
-theme_override_constants/margin_top = 15
-theme_override_constants/margin_right = 15
-theme_override_constants/margin_bottom = 15
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer" unique_id=624467572]
-layout_mode = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
-theme_override_fonts/normal_font = ExtResource("1_blyew")
-theme_override_font_sizes/normal_font_size = 16
+theme_override_fonts/normal_font = ExtResource("1_a0v7d")
 text = "\"At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.\"
-
 
 "
 scroll_active = false
+autowrap_mode = 1
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HealthBar" type="TextureProgressBar" parent="Panel" unique_id=552659959]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.069000006
+anchor_top = 0.333
+anchor_right = 0.91700006
+anchor_bottom = 0.59000003
+offset_left = 0.014995575
+offset_top = 0.06500244
+offset_right = -0.105041504
+offset_bottom = -0.05000305
+value = 100.0
+fill_mode = 1
+nine_patch_stretch = true
+texture_progress = ExtResource("1_m7xhs")
+tint_progress = Color(1, 0, 0, 1)
