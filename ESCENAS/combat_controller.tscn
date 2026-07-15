@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dfyl4kc18frnf"]
 
 [ext_resource type="Script" uid="uid://d2qfsj0nptgb6" path="res://CODIGO/combat_controller.gd" id="1_1oxky"]
+[ext_resource type="Resource" uid="uid://bprl4rr5xq7ny" path="res://RESOURCES/ACTUAL RESOURCES/combat_resource.tres" id="2_k3ud6"]
 
 [node name="CombatController" type="Node" unique_id=60368484]
 script = ExtResource("1_1oxky")
+combat_resources = ExtResource("2_k3ud6")

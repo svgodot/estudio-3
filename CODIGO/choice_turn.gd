@@ -1,3 +1,4 @@
+class_name ChoiceTurn
 extends Control
 
 
@@ -20,7 +21,9 @@ func _input(event: InputEvent) -> void:
 
 func on_fight_pressed() -> void:
 	$FightBtn/AnimationPlayer.play("press")
+	GlobalController.select_fight_signal.emit()
 
 func on_talk_pressed() -> void:
 	$TalkBtn/AnimationPlayer.play("press")
+	GlobalController.select_talk_signal.emit()
 	

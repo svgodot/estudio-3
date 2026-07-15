@@ -41,7 +41,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, -0.08726646, 0.0]
+"values": [0.0, 0.17453292519943295, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_ty5cn"]
@@ -68,7 +68,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5, 1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [0.0, 0.08726646, 0.0]
+"values": [0.0, -0.17453292519943295, 0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -134,7 +134,7 @@ metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Panel/Panel/TextureRect" unique_id=54876139]
 libraries/ = SubResource("AnimationLibrary_ug6ph")
-speed_scale = 2.0
+speed_scale = 2.5
 
 [node name="Name" type="RichTextLabel" parent="Panel" unique_id=667223499]
 layout_mode = 1
@@ -154,3 +154,5 @@ text = "BUG"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="animation_finished" from="Panel/Panel/TextureRect/AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -5,17 +5,9 @@ extends Node
 var last_time = 0
 
 @export var umbral_consecutivo = 0.25
-@export var player_attack = 1
-@export var player_defense = 1
-@export var player_health = 100
-@export var enemy_attack = 1
-@export var enemy_defense = 1
-@export var enemy_health = 100
 
-@export var sorrow_mod = 10
-@export var joy_mod = 20
-@export var anger_mod = 15
- 
+@export var combat_resources: ResourceCombat
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer.wait_time = GlobalController.combat_timer_value
@@ -29,9 +21,10 @@ func _ready() -> void:
 	
 	add_child(single_button_timer)
 
+	GlobalController.resolve_npc_action_signal.connect(on_resolve_npc_action)
+
+
 	
-
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -73,6 +66,36 @@ func start_timer(btn_name : String) -> void:
 		single_button_timer.stop()
 		single_button_timer.start()
 		
+
+func on_resolve_npc_action() -> void:
+	var turn = GlobalController.turn_cont
+	var sequence = combat_resources.attack_pattern
+
+	var turn_mod = turn % sequence.size()
+	var action = sequence[turn_mod]
+	var action_type = -1
+
+	var score = combat_resources.enemy_attack
+
+	# a -> joy, b -> anger, c -> sorrow, x -> wildcard
+	match (action):
+		"a":
+			score += combat_resources.npc_joy_mod
+			action_type = 0
+		"b":
+			score += combat_resources.npc_anger_mod
+			action_type = 1
+		"c":
+			score += combat_resources.npc_sorrow_mod
+			action_type = 2
+		"x":
+			score += combat_resources.npc_wildcard_mod
+			action_type = -1
+
+
+	GlobalController.npc_attack_feedback_signal.emit(score,action_type)
+	
+
 
 
 func resolve_action() -> void:
@@ -131,13 +154,13 @@ func resolve_action() -> void:
 		is_sorrow = false
 
 	if (is_sorrow):
-		action_score = player_attack + sorrow_mod
+		action_score = combat_resources.player_attack + combat_resources.sorrow_mod
 		action = 2
 	elif (is_anger):
-		action_score = player_attack + anger_mod
+		action_score = combat_resources.player_attack + combat_resources.anger_mod
 		action = 1
 	elif (is_joy):
-		action_score = player_attack + joy_mod
+		action_score = combat_resources.player_attack + combat_resources.joy_mod
 		action = 0
 
 

@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ResourceCombat" format=3 uid="uid://bprl4rr5xq7ny"]
+
+[ext_resource type="Script" uid="uid://bbhkwin7cfhq7" path="res://CODIGO/resource_combat.gd" id="1_mg7da"]
+
+[resource]
+script = ExtResource("1_mg7da")
+player_attack = 1
+player_defense = 1
+player_health = 100
+enemy_attack = 1
+enemy_defense = 1
+enemy_health = 100
+sorrow_mod = 10
+joy_mod = 20
+anger_mod = 15
+npc_sorrow_mod = 10
+npc_joy_mod = 20
+npc_anger_mod = 15
+npc_wildcard_mod = 10
+attack_pattern = ["a", "a", "x"]

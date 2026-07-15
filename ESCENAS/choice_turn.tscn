@@ -86,7 +86,7 @@ _data = {
 &"press": SubResource("Animation_wb4n3")
 }
 
-[node name="ChoiceTurn" type="Control" unique_id=1032022822]
+[node name="ChoiceTurn" type="Control" unique_id=1032022822 groups=["choice_turn_UI"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -98,14 +98,14 @@ script = ExtResource("1_ont0k")
 [node name="TalkBtn" type="Button" parent="." unique_id=753814987]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.279
-anchor_top = 0.439
-anchor_right = 0.43400002
-anchor_bottom = 0.563
-offset_left = -0.6800537
-offset_top = 1.8799744
-offset_right = -0.2800293
-offset_bottom = -0.040039063
+anchor_left = 0.25100002
+anchor_top = 0.78200006
+anchor_right = 0.40600002
+anchor_bottom = 0.90500003
+offset_left = 0.079956055
+offset_top = 0.4399414
+offset_right = 0.47998047
+offset_bottom = -0.4000244
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
 theme_override_colors/font_pressed_color = Color(0.9490196, 0.3137255, 0.19607843, 1)
@@ -129,14 +129,14 @@ libraries/ = SubResource("AnimationLibrary_gmu1g")
 [node name="FightBtn" type="Button" parent="." unique_id=304415004]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.572
-anchor_top = 0.446
-anchor_right = 0.72700006
-anchor_bottom = 0.563
-offset_left = -0.23999023
-offset_top = 0.3199768
-offset_right = 0.15991211
-offset_bottom = -0.040039063
+anchor_left = 0.614
+anchor_top = 0.78200006
+anchor_right = 0.76900005
+anchor_bottom = 0.89900005
+offset_left = -0.8800049
+offset_top = 0.4399414
+offset_right = -0.48010254
+offset_bottom = 0.079956055
 grow_vertical = 2
 theme = SubResource("Theme_fo48h")
 theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)

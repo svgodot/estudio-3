@@ -7,6 +7,7 @@ var is_mc_turn = false
 var can_smash_actions = true
 var is_talking = false
 @export var combat_timer_value = 1
+var turn_cont = 1
 
 signal action_press_signal(action_name)
 signal start_attack_sequence_signal()
@@ -14,6 +15,13 @@ signal restart_action_tracker_signal()
 signal play_mask_animation(action_name)
 signal do_damage_signal(value)
 signal show_action_signal(value, action) # 0 joy, 1 anger, 2 sorrow
+signal new_turn_signal(is_player)
+signal select_fight_signal()
+signal select_talk_signal() 
+
+signal resolve_npc_action_signal()
+signal npc_attack_feedback_signal(value, action) 	
+signal npc_do_damage_signal(value,action)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

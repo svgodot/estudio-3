@@ -148,6 +148,9 @@ tracks/2/keys = {
 "values": [Vector2(1, 1), Vector2(1.05, 1.05), Vector2(1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_ycrkq"]
+resource_name = "fade_out"
+
 [sub_resource type="Animation" id="Animation_8lwkj"]
 resource_name = "x"
 length = 0.1
@@ -193,6 +196,7 @@ _data = {
 &"RESET": SubResource("Animation_r0atp"),
 &"a": SubResource("Animation_touf3"),
 &"b": SubResource("Animation_x20aj"),
+&"fade_out": SubResource("Animation_ycrkq"),
 &"x": SubResource("Animation_8lwkj")
 }
 
@@ -344,14 +348,14 @@ metadata/_edit_lock_ = true
 [node name="Mask1" type="TextureRect" parent="." unique_id=72216307]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.162
-anchor_top = 0.76600003
-anchor_right = 0.28500003
-anchor_bottom = 0.96500003
-offset_left = 538.95996
-offset_top = -16.28003
-offset_right = 506.79993
-offset_bottom = -48.200073
+anchor_left = 0.44300002
+anchor_top = 0.75100005
+anchor_right = 0.549
+anchor_bottom = 0.92
+offset_left = -0.5600586
+offset_top = -0.080078125
+offset_right = -0.080078125
+offset_bottom = 0.39996338
 texture = ExtResource("2_r0atp")
 
 [node name="Mask1AnimationPlayer" type="AnimationPlayer" parent="Mask1" unique_id=1203823012]
@@ -436,8 +440,7 @@ offset_bottom = 2.1199799
 theme_override_fonts/normal_font = ExtResource("7_7jwqp")
 theme_override_font_sizes/normal_font_size = 28
 bbcode_enabled = true
-text = "PRECEDES: 
-JOY"
+text = "PRECEDES: [br][shake rate=5.0 level=5 connected=1]NOTHING[/shake]"
 scroll_active = false
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -457,17 +460,22 @@ color = Color(0, 0, 0, 1)
 libraries/ = SubResource("AnimationLibrary_ycrkq")
 
 [node name="ActionText" type="RichTextLabel" parent="." unique_id=570015228]
-visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = -1
+anchor_left = 0.303
+anchor_top = 0.75600004
+anchor_right = 0.684
+anchor_bottom = 0.90800005
+offset_left = -0.76000977
+offset_top = 0.5199585
+offset_right = 0.7199707
+offset_bottom = 0.35992432
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/default_color = Color(1, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("7_7jwqp")
-theme_override_font_sizes/normal_font_size = 300
+theme_override_font_sizes/normal_font_size = 72
 bbcode_enabled = true
 text = "[shake rate=20.0 level=5 connected=1]ANGER[/shake]"
 scroll_active = false
@@ -479,6 +487,9 @@ libraries/ = SubResource("AnimationLibrary_oo7jd")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=1162973328]
 position = Vector2(981, 336)
+
+[node name="Marker2D2" type="Marker2D" parent="." unique_id=1331122752]
+position = Vector2(288, 147)
 
 [editable path="PlayerStatsUI"]
 [editable path="EnemyStatsUI"]
